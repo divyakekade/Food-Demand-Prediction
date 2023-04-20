@@ -17,7 +17,7 @@ from xgboost import XGBRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.ensemble import GradientBoostingRegressor
-from statsmodels.tsa.holtwinters import ExponentialSmoothing
+# from statsmodels.tsa.holtwinters import ExponentialSmoothing
 from sklearn.preprocessing import StandardScaler
 from sklearn import metrics
 from sklearn.svm import SVR
