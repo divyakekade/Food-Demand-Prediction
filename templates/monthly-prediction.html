@@ -1,0 +1,54 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="outer-div">
+    <!-- <h1>Hello </h1> -->
+    <div class="home-heading-div">
+        <p class="home-subheading">Predict the demand & grow your business!</p>
+    </div>
+    <form method="POST" action="/monthly-prediction" class="form">
+        <div class="form-content">
+            <select name="month" class="form-content-field">
+                <option value=1>January</option>
+                <option value=2>February</option>
+                <option value=3>March</option>
+                <option value=4>April</option>
+                <option value=5>May</option>
+                <option value=6>June</option>
+                <option value=7>July</option>
+                <option value=8>August</option>
+                <option value=9>September</option>
+                <option value=10>October</option>
+                <option value=11>November</option>
+                <option value=12>December</option>
+            </select>
+
+            <select name="food" class="form-content-field">
+                <option value=9>Burger</option>
+                <option value=1>Coffee</option>
+                <option value=4> Milk</option>
+                <option value=2>Tea</option>
+            </select>
+
+            <input type="number" step="any" placeholder="Enter Price" name="price" class="form-content-field" />
+
+        </div>
+        <div class="form-button-div">
+            <button type="submit" class="form-button">Predict</button>
+
+        </div>
+    </form>
+   {% if prediction %}
+<hr style="margin-top:3vh"/>
+<div class="result-container">
+    <div style="width:50vw">
+        <h2 class="result-text">
+            Predicted Result
+        </h2>
+        <div class="home-heading-div" style="margin-top: 2vh;">
+            <p class="result">Number of Orders: <b>{{prediction}}</b></p>
+        </div>
+    </div>
+</div>
+{%endif%}
+</div>
+{% endblock content %}

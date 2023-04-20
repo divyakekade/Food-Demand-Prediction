@@ -1,0 +1,130 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: rgb(241, 171, 40);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0px 5px 6px gray;
+}
+
+.outer-div {
+    margin-top: 15vh;
+    /* display: flex; */
+}
+
+.home-outer-div {
+    margin: 12vh;
+    display: flex;
+    flex-direction: column;
+    /* margin-left: auto;
+margin-right: auto; */
+}
+
+.home-heading-div {
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(232, 227, 215);
+    text-align: center;
+    margin-top: 6vh;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 3px 5px 6px rgb(169, 168, 168);
+
+
+}
+.home-heading{
+font-size: 2.3vw;
+color: rgb(116, 16, 16);
+font-weight: bold;
+}
+.home-subheading{
+    font-size: 1.5vw;
+    font-style: italic;
+}
+.home-options {
+    display: flex;
+    padding: 4vw;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-inner-div {
+    width: 18vw;
+    background-color: rgb(241, 171, 40);
+    margin: 0px 2.5vw;
+    padding: 1vw 3vw 2vw 3vw;
+    box-shadow: 3px 5px 6px rgb(169, 168, 168);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.home-button{
+    background-color: black;
+    color: white;
+    font-size:1.5vw ;
+    border-radius: 15px;
+    box-shadow: 3px 5px 6px rgb(177, 117, 6);
+    cursor: pointer;
+    padding: 1vh 2vw;
+    margin-top: 6vh;
+}
+.home-option-text{
+    font-size: 1.4vw;
+    font-weight: bold
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 4vh;
+    
+}
+.form-content{
+    padding: 6vh 4vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+.form-content-field{
+    width: 22vw;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid  rgb(241, 171, 40);
+    background-color: transparent;
+    height: 5vh;
+    font-size: 1.2vw;
+
+}
+.form-button{
+    width: 12vw;
+    background-color: black;
+    color: white;
+    font-size:1.5vw ;
+    border-radius: 15px;
+    box-shadow: 3px 5px 6px  rgb(169, 168, 168);
+    cursor: pointer;
+    padding: 1vh 2vw;
+    margin-top: 6vh;
+    
+
+
+}
+
+.form-button-div{
+display: flex;
+justify-content: center;
+}
+.result{
+    font-size: 1.3vw;
+}
+.result-container{
+    display: flex;
+    justify-content: center;
+}
