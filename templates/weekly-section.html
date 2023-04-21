@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="section-outer-div">
+    <div class="section-heading-text">
+        <p class="section-welcome-text">Welcome User</p>
+        <p class="section-tagline">Deal with your weekly food orders & grow your business quickly!</p>
+    </div>
+    <div class="section-buttons-outer-div">
+        <div class="section-button-div">
+            <p class="section-info">Know about the food demands for the week you want and be ready to serve.</p>
+            <a href="weekly-prediction" ><button class="section-button">Predict Weekly Demand</button></a>
+        </div>
+        <div class="section-button-div">
+            <p class="section-info">Update the orders yor got for the week and get better predictions next time.</p>
+            <a href="weekly-update" ><button class="section-button">Update Weekly Data</button></a>
+        </div>
+    </div>
+</div>
+{% endblock content %}

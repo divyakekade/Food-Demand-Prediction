@@ -1,0 +1,104 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="outer-div">
+    {% if error %}
+    <div class="error-div">
+        <p class="msg-text">{{error}}</p>
+    </div>
+    {% endif %}
+    {% if success %} 
+    <div class="success-div">
+        <p class="msg-text">{{success}}</p>
+        <a href="weekly-section"><button class="msg-button">OK</button></a>
+    </div>
+    {% endif %}
+    <form method="POST" action="/weekly-update" class="form">
+        <div class="form-header-div">
+            <p class="form-heading">Enter data for the week</p>
+        </div>
+        <div class="form-content">
+            <div class="form-labeled-field">
+                <label class="form-label">select month*</label>
+                <select name="month" class="form-content-field">
+                    <option value=1>January</option>
+                    <option value=2>February</option>
+                    <option value=3>March</option>
+                    <option value=4>April</option>
+                    <option value=5>May</option>
+                    <option value=6>June</option>
+                    <option value=7>July</option>
+                    <option value=8>August</option>
+                    <option value=9>September</option>
+                    <option value=10>October</option>
+                    <option value=11>November</option>
+                    <option value=12>December</option>
+                </select>
+            </div>
+            <div class="form-labeled-field">
+                <label class="form-label">select week*</label>
+                <select name="week" class="form-content-field">
+                    <option value=1>First week</option>
+                    <option value=2>Second week</option>
+                    <option value=3>Third week</option>
+                    <option value=4>Fourth week</option>
+                </select>
+            </div>
+            <div class="form-labeled-field">
+                <label class="form-label">select food item*</label>
+                <select name="food" class="form-content-field">
+                    <option value=2>Tea</option>
+                    <option value=4>Milk</option>
+                    <option value=1>Coffee</option>
+                    <option value=23>Lassi</option>
+                    <option value=24>Buttermilk</option>
+                    <option value=3>Orange Juice</option>
+                    <option value=7>Apple Juice</option>
+                    <option value=25>Pineapple Juice</option>
+                    <option value=5>Mango Shake</option>
+                    <option value=21>Lemon Soda</option>
+                    <option value=8>Spirit</option>
+                    <option value=10>Cocktails</option>
+                    <option value=30>Doughnuts</option>
+                    <option value=31>Brownies</option>
+                    <option value=11>Vegetable Soup</option>
+                    <option value=12>Mushroom Soup</option>
+                    <option value=13>Tomato Soup</option>
+                    <option value=22>Egg Salad</option>
+                    <option value=15>Vegetable Salad</option>
+                    <option value=18>Fruit Salad</option>
+                    <option value=26>Rice Pudding</option>
+                    <option value=19>Sandwich</option>
+                    <option value=37>Fish and Chips</option>
+                    <option value=9>Burger</option>
+                    <option value=6>Noodels</option>
+                    <option value=14>Spring Rolls</option>
+                    <option value=20>Pasta</option>
+                    <option value=33>Pizza</option>
+                    <option value=17>Rice</option>
+                    <option value=16>Jeera Rice</option>
+                    <option value=27>Fried Rice</option>
+                    <option value=39>Seafood Fried Rice</option>
+                    <option value=32>Vegetable Biryani</option>
+                    <option value=28>Chicken Biryani</option>
+                    <option value=29>Egg Biryani</option>
+                    <option value=34>Grilled Fish</option>
+                    <option value=36>Fish Curry</option>
+                    <option value=35>Pan-seared Fish</option>
+                    <option value=38>Coconut Shrimp</option>
+                </select>
+            </div>
+            <div class="form-labeled-field">
+                <label class="form-label">enter price of food item*</label>
+                <input type="number" step="any" placeholder="Enter price" name="price" class="form-content-field" />
+            </div>
+            <div class="form-labeled-field">
+                <label class="form-label">enter orders you served*</label>
+                <input type="number" step="any" placeholder="Enter no. of orders" name="orders" class="form-content-field" />
+            </div>
+            <div class="form-button-div">
+                <button type="submit" class="form-button">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}

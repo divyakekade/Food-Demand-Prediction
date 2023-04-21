@@ -1,0 +1,19 @@
+{% extends "base.html"%}
+{% block content%}
+<div class="section-outer-div">
+    <div class="section-heading-text">
+        <p class="section-welcome-text">Welcome User</p>
+        <p class="section-tagline">Deal with your monthly food orders & grow your business!</p>
+    </div>
+    <div class="section-buttons-outer-div">
+        <div class="section-button-div">
+            <p class="section-info">Know about the food demands for the month you want and fix your monthly budget.</p>
+            <a href="monthly-prediction" ><button class="section-button">Predict Monthly Demand</button></a>
+        </div>
+        <div class="section-button-div">
+            <p class="section-info">Update the orders yor got for the month and get better predictions next time.</p>
+            <a href="monthly-update" ><button class="section-button">Update Monthly Data</button></a>
+        </div>
+    </div>
+</div>
+{% endblock content %}
