@@ -11,7 +11,7 @@ import csv
 app = Flask(__name__)
 
 model_weekly=pickle.load(open('./weekly_model.pkl','rb'))
-model_monthly=pickle.load(open('./model_monthly.pkl','rb'))
+model_monthly=pickle.load(open('./monthly_model.pkl','rb'))
 
 @app.route('/')
 def home():
@@ -86,12 +86,12 @@ def weeklyUpdateData():
         orders = request.form.get("orders")
         if(week=="" or month=="" or food=="" or price=="" or orders==""):
             return render_template("weekly-update.html",error="Please fill values in all the fields.")
-        data  = pd.read_csv('New_Data.csv')
+        data  = pd.read_csv('weekly_train.csv')
         new_data = [len(data), int(week),float(price),int(orders),int(month),int(food)]
-        with open('New_Data.csv', mode='a', newline='') as file:
+        with open('weekly_train.csv', mode='a', newline='') as file:
             writer = csv.writer(file)
             writer.writerow(new_data)
-        # weeklydataUpdater()
+        weeklydataUpdater()
         return render_template("weekly-update.html",success="Your data updated successfully!")
     return render_template("weekly-update.html")
   
@@ -104,19 +104,19 @@ def monthlyUpdateData():
         orders = request.form.get("orders")
         if(month=="" or food=="" or price=="" or orders==""):
             return render_template("monthly-update.html",error="Please fill values in all the fields.")
-        # data  = pd.read_csv('New_Data.csv')
-        # new_data = [len(data),float(price),int(orders),int(month),int(food)]
-        # with open('New_Data.csv', mode='a', newline='') as file:
-        #     writer = csv.writer(file)
-        #     writer.writerow(new_data)
-        # weeklydataUpdater()
+        data  = pd.read_csv('monthly_train.csv')
+        new_data = [len(data),float(price),int(month),int(food),int(orders)]
+        with open('monthly_train.csv', mode='a', newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(new_data)
+        monthlyDataUpdater()
         return render_template("monthly-update.html",success="Your data updated successfully!")
     return render_template("monthly-update.html")
 
 def weeklydataUpdater():
     global model_weekly
-    data = pd.read_csv('New_Data.csv')
-    print(len(data))
+    data = pd.read_csv('weekly_train.csv')
+    # print(len(data))
     data = data.drop(['index'], axis=1)
     # X are features and Y is target column
     X = data.drop(columns='num_orders',axis=1)
@@ -132,7 +132,23 @@ def weeklydataUpdater():
     r2_test = metrics.r2_score(Y_test, testing_data_predcition)
     pickle.dump(rf,open('weekly_model.pkl','wb'))
     model_weekly=pickle.load(open('weekly_model.pkl','rb'))
-    # model_weekly=pickle.load(open('./weekly_model.pkl','rb'))
+
+def monthlyDataUpdater():
+    global model_monthly
+    data = pd.read_csv('monthly_train.csv')
+    data = data.drop(['index'], axis=1)
+    # X are features and Y is target column
+    X = data.drop(columns='num_orders',axis=1)
+    Y = data['num_orders']
+    # Splitting the data into traing and testing data 
+    X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.2, random_state=2)
+
+    """Random forest algorithm """
+
+    rf = RandomForestRegressor(n_estimators=100, random_state=42)
+    rf.fit(X_train, Y_train)
+    pickle.dump(rf,open('monthly_model.pkl','wb'))
+    model_monthly=pickle.load(open('monthly_model.pkl','rb'))
 
 if __name__ == '__main__':
     app.run(debug=True)
