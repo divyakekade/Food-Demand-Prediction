@@ -1,3 +1,4 @@
+import os
 from flask import Flask,request, url_for, redirect, render_template
 import pickle
 import numpy as np
@@ -10,12 +11,16 @@ import pickle
 import csv
 app = Flask(__name__)
 
+IMG_FOLDER = os.path.join('static', 'images')
+app.config['UPLOAD_FOLDER'] = IMG_FOLDER
+
 model_weekly=pickle.load(open('./weekly_model.pkl','rb'))
 model_monthly=pickle.load(open('./model_monthly.pkl','rb'))
 
 @app.route('/')
 def home():
-    return render_template("home.html")
+    Home_Image = os.path.join(app.config['UPLOAD_FOLDER'], 'food.jpg')
+    return render_template("home.html", image=Home_Image)
 
 @app.route('/weekly-section')
 def weeklySection():

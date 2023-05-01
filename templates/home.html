@@ -1,23 +1,13 @@
 {% extends "base.html"%}
 {% block content%}
 <div class="home-outer-div">
-    <div class="home-heading-div">
-        <p class="home-heading">Welcome User</p>
-        <p class="home-subheading">Predict the demand & grow your business!</p>
-    </div>
-    <div class="home-options">
-        <div class="home-inner-div">
-            <p class="home-option-text">Analyse your monthly food orders.</p>
-            <a href="monthly-section">
-                <button class="home-button">Monthly Predict</button>
-            </a>
-        </div>
-        <div class="home-inner-div">
-            <p class="home-option-text">Analyse your weekly food orders.</p>
-            <a href="weekly-section">
-                <button class="home-button">Weekly Predict</button>
-            </a>
-        </div>
+    <div class="image-div">
+        <img src="{{image}}" height="100%" width="100%" class="image">
+        <p class="image-heading image-heading1">Know Food Demands,</p>
+        <p class="image-heading image-heading2">Be Ready To Serve &</p>
+        <p class="image-heading image-heading3">Grow Your Business!</p>
+        <p class="image-subheading image-subheading1">Get weekly & monthly predictions for orders of food items.</p>
+        <p class="image-subheading image-subheading2">Update the data of orders for next better and more accurate predictions.</p>
     </div>
 </div>
 {% endblock content %}
